@@ -37,7 +37,9 @@ func (o *Status) ToJson() string {
 
 func StatusFromJson(data io.Reader) *Status {
 	decoder := json.NewDecoder(data)
-	var o Status
+	o := Status{
+		Manual: true,
+	}
 	err := decoder.Decode(&o)
 	if err == nil {
 		return &o
